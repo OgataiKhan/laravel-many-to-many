@@ -84,6 +84,8 @@ class ProjectController extends Controller
 
         if (isset($data['technologies'])) {
             $project->technologies()->sync($data['technologies']);
+        } else {
+            $project->technologies()->sync([]);
         }
 
         return redirect()->route('admin.projects.index')->with('message', "Project $project->title updated successfully!");
