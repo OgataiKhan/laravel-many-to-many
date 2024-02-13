@@ -18,7 +18,6 @@ class ProjectSeeder extends Seeder
             [
                 'title' => 'Personal Portfolio Website',
                 'description' => 'A personal portfolio website to showcase my projects and skills. Built with Laravel, Vue.js, and Bootstrap.',
-                'technologies' => 'Laravel, Vue.js, Bootstrap',
                 'url' => 'https://exampleportfolio.com',
                 'image_url' => 'https://example.com/images/portfolio1.jpg',
                 'type_id' => 3,
@@ -26,7 +25,6 @@ class ProjectSeeder extends Seeder
             [
                 'title' => 'E-commerce Platform',
                 'description' => 'A fully functional e-commerce platform for online shopping, featuring product management, shopping cart, and order processing.',
-                'technologies' => 'Laravel, Bootstrap, MySQL',
                 'url' => 'https://exampleshop.com',
                 'image_url' => 'https://example.com/images/shop.jpg',
                 'type_id' => 3,
@@ -34,7 +32,6 @@ class ProjectSeeder extends Seeder
             [
                 'title' => 'Task Management System',
                 'description' => 'A web application for task management, allowing users to create, assign, and track tasks through a user-friendly interface.',
-                'technologies' => 'Laravel, Vue.js',
                 'url' => 'https://exampletasks.com',
                 'image_url' => 'https://example.com/images/tasks.jpg',  
                 'type_id' => 3,
