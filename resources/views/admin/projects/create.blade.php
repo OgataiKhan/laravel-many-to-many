@@ -26,9 +26,12 @@
                 <div>
                     <label class="form-label">Technologies</label>
                 </div>
+                @if ($errors->any())
+                    
+                @endif
                 @foreach ($technologies as $technology)
                     <div class="form-check form-check-inline">
-                        <input name="technologies[]" class="form-check-input" id="technology-{{ $technology->id }}" type="checkbox" value="{{ $technology->id }}">
+                        <input name="technologies[]" class="form-check-input" id="technology-{{ $technology->id }}" type="checkbox" value="{{ $technology->id }}" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
                         <label class="form-check-label" for="technology-{{ $technology->id }}">{{ $technology->title }}</label>
                     </div>
                 @endforeach
