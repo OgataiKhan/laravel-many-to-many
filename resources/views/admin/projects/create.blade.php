@@ -23,9 +23,15 @@
                 <textarea class="form-control" id="description" name="description" rows="3">{{ old('description') }}</textarea>
             </div>
             <div class="form-group mb-3">
-                <label for="technologies">Technologies</label>
-                <input type="text" class="form-control" id="technologies" name="technologies"
-                    value="{{ old('technologies') }}">
+                <div>
+                    <label class="form-label">Technologies</label>
+                </div>
+                @foreach ($technologies as $technology)
+                    <div class="form-check form-check-inline">
+                        <input name="technologies[]" class="form-check-input" id="technology-{{ $technology->id }}" type="checkbox" value="{{ $technology->id }}">
+                        <label class="form-check-label" for="technology-{{ $technology->id }}">{{ $technology->title }}</label>
+                    </div>
+                @endforeach
             </div>
             <div class="form-group mb-3">
                 <label for="url">Project URL</label>
@@ -36,7 +42,8 @@
                 <select id="type_id" name="type_id" class="form-select">
                     <option selected>Select type...</option>
                     @foreach ($types as $type)
-                        <option value="{{ $type->id }}" @if (old('type_id') == $type->id) selected @endif>{{ $type->title }}
+                        <option value="{{ $type->id }}" @if (old('type_id') == $type->id) selected @endif>
+                            {{ $type->title }}
                         </option>
                     @endforeach
                 </select>
