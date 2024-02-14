@@ -19,7 +19,7 @@
                 </div>
             </div>
         @endif
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">id</th>
@@ -34,9 +34,7 @@
                         <td>{{ $technology->id }}</td>
                         <td>{{ $technology->title }}</td>
                         <td>{{ $technology->slug }}</td>
-                        <td>
-                            <a rel="stylesheet" href="{{ route('admin.technologies.show', $technology) }}" role="button"
-                                class="btn btn-info btn-sm">show</a>
+                        <td class="text-end">
                             <a rel="stylesheet" href="{{ route('admin.technologies.edit', $technology) }}" role="button" class="btn btn-primary btn-sm">edit</a>
                             <form action="{{ route('admin.technologies.destroy', $technology) }}" method="POST"
                                 style="display: inline;">

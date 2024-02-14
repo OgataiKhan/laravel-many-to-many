@@ -23,7 +23,7 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.technologies.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class TechnologyController extends Controller
      */
     public function show(Technology $technology)
     {
-        //
+        abort(404);
     }
 
     /**

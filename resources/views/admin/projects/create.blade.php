@@ -3,6 +3,7 @@
 @section('content')
     <div class="container mt-5">
         <h1>Add New Project</h1>
+        <a href="{{ route('admin.projects.index') }}" role="button" class="btn btn-info mb-3">Back to projects</a>
         @if ($errors->any())
             <div class="alert alert-danger" role="alert">
                 <ul>
@@ -16,11 +17,11 @@
             @csrf
             <div class="form-group mb-3">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" required value="{{ old('title') }}">
+                <input type="text" class="form-control" id="title" name="title" required value="{{ old('title') }}" placeholder="New project">
             </div>
             <div class="form-group mb-3">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="3">{{ old('description') }}</textarea>
+                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Project description...">{{ old('description') }}</textarea>
             </div>
             <div class="form-group mb-3">
                 <div>

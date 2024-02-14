@@ -20,7 +20,7 @@
                 </div>
             </div>
         @endif
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">id</th>
@@ -35,7 +35,7 @@
                         <td>{{ $project->id }}</td>
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->slug }}</td>
-                        <td>
+                        <td class="text-end">
                             <a rel="stylesheet" href="{{ route('admin.projects.show', $project) }}" role="button"
                                 class="btn btn-info btn-sm">show</a>
                             <a rel="stylesheet" href="{{ route('admin.projects.edit', $project) }}" role="button" class="btn btn-primary btn-sm">edit</a>
