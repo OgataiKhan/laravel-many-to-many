@@ -22,7 +22,7 @@ class StoreTechnologyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'max:48', 'unique:technologies,title']
+            'title' => ['required', 'max:48', 'unique:technologies,title', 'unique:technologies,slug']
         ];
     }
 }
