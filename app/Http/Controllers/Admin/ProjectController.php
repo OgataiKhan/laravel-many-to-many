@@ -98,8 +98,10 @@ class ProjectController extends Controller
     {
         $project->technologies()->sync([]);
 
+        $project_title = $project->title;
+
         $project->delete();
 
-        return redirect()->route('admin.projects.index');
+        return redirect()->route('admin.projects.index')->with('message', "Project $project_title deleted successfully!");;
     }
 }

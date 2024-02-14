@@ -71,6 +71,12 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
-        //
+        $technology->projects()->detach();
+
+        $technology_title = $technology->title;
+
+        $technology->delete();
+
+         return to_route('admin.technologies.index')->with('message', "Technology $technology_title deleted successfully!");
     }
 }
