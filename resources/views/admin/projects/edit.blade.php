@@ -3,6 +3,7 @@
 @section('content')
     <div class="container mt-5">
         <h1>Edit Project</h1>
+        <a href="{{ route('admin.projects.index') }}" role="button" class="btn btn-info mb-3">Back to projects</a>
         @if ($errors->any())
             <div class="alert alert-danger" role="alert">
                 <ul>

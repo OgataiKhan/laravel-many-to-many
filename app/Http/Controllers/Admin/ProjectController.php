@@ -80,6 +80,10 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
+        if (isset($data['title']) && $data['title'] !== $project->title) {
+            $data['slug'] = Str::slug($data['title']);
+        }
+
         $project->update($data);
 
         if (isset($data['technologies'])) {
