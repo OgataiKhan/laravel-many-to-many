@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -43,6 +44,11 @@ class ProjectController extends Controller
         $project = new Project();
         $project->fill($data);
         $project->slug = Str::slug($request->title);
+
+        if (isset($data['image_path'])) {
+            $project->image_path = Storage::put('uploads', $data['image_path']);
+        }
+
         $project->save();
 
         if (isset($data['technologies'])) {
