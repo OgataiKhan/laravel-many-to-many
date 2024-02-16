@@ -20,6 +20,6 @@
         <div>
             <img src="{{ asset('storage/'.$project->image_path) }}" class="img-fluid" alt="{{ $project->title }}">
         </div>
-        <a href="{{ route('admin.projects.index') }}" role="button" class="btn btn-primary">Projects list</a>
+        <a href="{{ route('admin.projects.index') }}" role="button" class="btn btn-primary mb-3">Projects list</a>
     </div>
 @endsection

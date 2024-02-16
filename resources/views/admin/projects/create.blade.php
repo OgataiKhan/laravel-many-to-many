@@ -57,7 +57,7 @@
                 <label for="image_path" class="form-label">Choose project image</label>
                 <input class="form-control" type="file" id="image_path" name="image_path">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary mb-3">Submit</button>
         </form>
     </div>
 @endsection

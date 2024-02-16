@@ -13,7 +13,7 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group mb-3">
@@ -63,12 +63,16 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group mb-3">
-                <label for="image_url">Image URL</label>
-                <input type="text" class="form-control" id="image_url" name="image_url"
-                    value="{{ old('image_url', $project->image_url) }}">
+            <div class="mb-3">
+                <label for="image_path" class="form-label">Choose project image</label>
+                <input class="form-control" type="file" id="image_path" name="image_path">
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            @if ($project->image_path)
+                <div class="w-25 p-3">
+                    <img src="{{ asset('storage/'.$project->image_path) }}" class="img-fluid" alt="Current image">
+                </div>
+            @endif
+            <button type="submit" class="btn btn-primary mb-3">Update</button>
         </form>
     </div>
 @endsection

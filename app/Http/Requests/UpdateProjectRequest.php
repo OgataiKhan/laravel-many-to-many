@@ -27,7 +27,7 @@ class UpdateProjectRequest extends FormRequest
             'description' => ['required', 'string', 'max:1000'],
             'technologies' => ['nullable', 'exists:technologies,id'],
             'url' => ['nullable', 'url'],
-            'image_url' => ['nullable', 'url'],
+            'image_path' => ['nullable', 'image', 'max:5120'],
             'type_id' => ['nullable', 'exists:types,id'],
         ];
     }

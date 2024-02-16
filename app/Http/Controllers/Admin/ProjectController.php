@@ -83,7 +83,17 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+
+
         $data = $request->validated();
+
+        if ($request->hasFile('image_path')) {
+            if ($project->image_path) {
+                Storage::delete($project->image_path);
+            }
+    
+            $project->image_path = Storage::put('uploads', $data['image_path']);
+        }
 
         if (isset($data['title']) && $data['title'] !== $project->title) {
             $project->slug = Str::slug($data['title']);
@@ -105,6 +115,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->image_path) {
+            Storage::delete($project->image_path);
+        }
+
         $project->technologies()->sync([]);
 
         $project_title = $project->title;
