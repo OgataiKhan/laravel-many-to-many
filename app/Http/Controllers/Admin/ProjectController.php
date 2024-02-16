@@ -40,10 +40,9 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        $data['slug'] = Str::slug($request->title);
-
         $project = new Project();
         $project->fill($data);
+        $project->slug = Str::slug($request->title);
         $project->save();
 
         if (isset($data['technologies'])) {
@@ -81,7 +80,7 @@ class ProjectController extends Controller
         $data = $request->validated();
 
         if (isset($data['title']) && $data['title'] !== $project->title) {
-            $data['slug'] = Str::slug($data['title']);
+            $project->slug = Str::slug($data['title']);
         }
 
         $project->update($data);
