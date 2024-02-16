@@ -7,14 +7,18 @@
         <p>Type: {{ $project->type->title ?? 'None' }}</p>
         <div>
             Technologies used: 
-            <ul>
-                @foreach ($project->technologies as $technology)
-                    <li>
-                        {{ $technology->title }}
-                    </li>
-                @endforeach
-            </ul>
-            
+            @if ($project->technologies->isEmpty())
+                not specified
+            @else
+                <ul>
+                    @foreach ($project->technologies as $technology)
+                        <li>{{ $technology->title }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+        <div>
+            <img src="{{ asset('storage/'.$project->image_path) }}" class="img-fluid" alt="{{ $project->title }}">
         </div>
         <a href="{{ route('admin.projects.index') }}" role="button" class="btn btn-primary">Projects list</a>
     </div>
